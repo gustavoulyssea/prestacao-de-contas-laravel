@@ -3,7 +3,11 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Throwable;
+use Illuminate\Http\Response;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 class Handler extends ExceptionHandler
 {
@@ -26,5 +30,28 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * @param $request
+     * @param Throwable $e
+     *
+     * @return JsonResponse
+     * @throws Throwable
+     */
+    public function render($request, Throwable $e)
+    {
+        if ($e instanceof HttpExceptionInterface) {
+            return response()->json([
+                'error' => $e->getMessage() ?: Response::$statusTexts[$e->getStatusCode()],
+            ], $e->getStatusCode());
+        }
+
+        return response()->json([
+            'error' => 'Erro interno no servidor',
+            'exception' => get_class($e),
+            'message' => $e->getMessage(),
+        ], 500);
+
     }
 }

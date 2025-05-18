@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    public const ID = 'id';
     public const NAME = 'name';
     public const EMAIL = 'email';
     public const PASSWORD = 'password';
@@ -14,12 +15,6 @@ class User extends Authenticatable
     public const RAZAO_SOCIAL = 'razao_social';
     public const RESPONSIBLE_NAME = 'responsible_name';
     public const TELEPHONE = 'telephone';
-    public const UF = 'uf';
-    public const CITY = 'city';
-    public const STREET = 'street';
-    public const STREET_NUMBER = 'street_number';
-    public const STREET_COMPLEMENT = 'street_complement';
-    public const POST_CODE = 'post_code';
 
     /**
      * The attributes that are mass assignable.

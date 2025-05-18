@@ -15,6 +15,8 @@ class ValidateCnpjIsRegistered extends Controller
      *
      * Validate if a CNPJ is already registered
      *
+     * @group user
+     *
      * @responseField result bool CNPJ is registered
      *
      * @param Request $request

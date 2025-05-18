@@ -66,13 +66,22 @@
                     <a href="#authenticating-requests">Authenticating requests</a>
                 </li>
                             </ul>
-                    <ul id="tocify-header-endpoints" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="endpoints">
-                    <a href="#endpoints">Endpoints</a>
+                    <ul id="tocify-header-user" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="user">
+                    <a href="#user">user</a>
                 </li>
-                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-GETrest-validate-cnpj-is-registered--CNPJ-">
-                                <a href="#endpoints-GETrest-validate-cnpj-is-registered--CNPJ-">Validate CNPJ is registered</a>
+                                    <ul id="tocify-subheader-user" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="user-GETrest-V1-user-me">
+                                <a href="#user-GETrest-V1-user-me">Get logged-in user details</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-POSTrest-V1-user-create-user">
+                                <a href="#user-POSTrest-V1-user-create-user">Create user</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-">
+                                <a href="#user-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-">Validate CNPJ is registered</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-POSTrest-V1-user-generate-token">
+                                <a href="#user-POSTrest-V1-user-generate-token">Generate user token</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -85,7 +94,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: May 16, 2025</li>
+        <li>Last updated: May 18, 2025</li>
     </ul>
 </div>
 
@@ -104,31 +113,32 @@ You can switch the language used with the tabs at the top right (or from the nav
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
 
-        <h1 id="endpoints">Endpoints</h1>
+        <h1 id="user">user</h1>
 
     
 
-                                <h2 id="endpoints-GETrest-validate-cnpj-is-registered--CNPJ-">Validate CNPJ is registered</h2>
+                                <h2 id="user-GETrest-V1-user-me">Get logged-in user details</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Validate if a CNPJ is already registered</p>
 
-<span id="example-requests-GETrest-validate-cnpj-is-registered--CNPJ-">
+
+<span id="example-requests-GETrest-V1-user-me">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://contas.localhost/rest/validate-cnpj-is-registered/consequatur" \
+    --get "http://contas.localhost/rest/V1/user/me" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://contas.localhost/rest/validate-cnpj-is-registered/consequatur"
+    "http://contas.localhost/rest/V1/user/me"
 );
 
 const headers = {
@@ -143,7 +153,388 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETrest-validate-cnpj-is-registered--CNPJ-">
+<span id="example-responses-GETrest-V1-user-me">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Nome completo&quot;,
+    &quot;email&quot;: &quot;teste@email.com&quot;,
+    &quot;cnpj&quot;: &quot;123546789&quot;,
+    &quot;razao_social&quot;: &quot;Razao social&quot;,
+    &quot;responsible_name&quot;: &quot;Nome&quot;,
+    &quot;telephone&quot;: &quot;123456789&quot;,
+    &quot;address&quot;: null
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unautorized):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETrest-V1-user-me" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETrest-V1-user-me"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETrest-V1-user-me"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETrest-V1-user-me" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETrest-V1-user-me">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETrest-V1-user-me" data-method="GET"
+      data-path="rest/V1/user/me"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETrest-V1-user-me', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETrest-V1-user-me"
+                    onclick="tryItOut('GETrest-V1-user-me');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETrest-V1-user-me"
+                    onclick="cancelTryOut('GETrest-V1-user-me');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETrest-V1-user-me"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>rest/V1/user/me</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETrest-V1-user-me"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETrest-V1-user-me"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="user-POSTrest-V1-user-create-user">Create user</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTrest-V1-user-create-user">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://contas.localhost/rest/V1/user/create-user" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"consequatur\",
+    \"email\": \"qkunze@example.com\",
+    \"password\": \"O[2UZ5ij-e\\/dl4m{o,\",
+    \"password_confirmation\": \"consequatur\",
+    \"cnpj\": \"consequatur\",
+    \"razao_social\": \"consequatur\",
+    \"responsible_name\": \"consequatur\",
+    \"telephone\": \"consequatur\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://contas.localhost/rest/V1/user/create-user"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "consequatur",
+    "email": "qkunze@example.com",
+    "password": "O[2UZ5ij-e\/dl4m{o,",
+    "password_confirmation": "consequatur",
+    "cnpj": "consequatur",
+    "razao_social": "consequatur",
+    "responsible_name": "consequatur",
+    "telephone": "consequatur"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTrest-V1-user-create-user">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+   &quot;bearer_token&quot;: &quot;tokenabcde&quot;,
+   &quot;validuntil&quot;: &quot;1747515969&quot;,
+  }</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Invalid data):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Invalid data&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Invalid CNPJ or password):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Invalid CNPJ or password&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTrest-V1-user-create-user" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTrest-V1-user-create-user"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTrest-V1-user-create-user"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTrest-V1-user-create-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTrest-V1-user-create-user">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTrest-V1-user-create-user" data-method="POST"
+      data-path="rest/V1/user/create-user"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTrest-V1-user-create-user', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTrest-V1-user-create-user"
+                    onclick="tryItOut('POSTrest-V1-user-create-user');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTrest-V1-user-create-user"
+                    onclick="cancelTryOut('POSTrest-V1-user-create-user');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTrest-V1-user-create-user"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>rest/V1/user/create-user</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTrest-V1-user-create-user"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTrest-V1-user-create-user"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTrest-V1-user-create-user"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTrest-V1-user-create-user"
+               value="qkunze@example.com"
+               data-component="body">
+    <br>
+<p>Example: <code>qkunze@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="POSTrest-V1-user-create-user"
+               value="O[2UZ5ij-e/dl4m{o,"
+               data-component="body">
+    <br>
+<p>Example: <code>O[2UZ5ij-e/dl4m{o,</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password_confirmation"                data-endpoint="POSTrest-V1-user-create-user"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cnpj</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cnpj"                data-endpoint="POSTrest-V1-user-create-user"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>razao_social</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="razao_social"                data-endpoint="POSTrest-V1-user-create-user"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>responsible_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="responsible_name"                data-endpoint="POSTrest-V1-user-create-user"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>telephone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="telephone"                data-endpoint="POSTrest-V1-user-create-user"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+        </form>
+
+                    <h2 id="user-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-">Validate CNPJ is registered</h2>
+
+<p>
+</p>
+
+<p>Validate if a CNPJ is already registered</p>
+
+<span id="example-requests-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://contas.localhost/rest/V1/user/validate-cnpj-is-registered/consequatur" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://contas.localhost/rest/V1/user/validate-cnpj-is-registered/consequatur"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -161,43 +552,43 @@ content-type: application/json
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETrest-validate-cnpj-is-registered--CNPJ-" hidden>
+<span id="execution-results-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETrest-validate-cnpj-is-registered--CNPJ-"></span>:
+                id="execution-response-status-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETrest-validate-cnpj-is-registered--CNPJ-"
+    <pre class="json"><code id="execution-response-content-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETrest-validate-cnpj-is-registered--CNPJ-" hidden>
+<span id="execution-error-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETrest-validate-cnpj-is-registered--CNPJ-">
+    <pre><code id="execution-error-message-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETrest-validate-cnpj-is-registered--CNPJ-" data-method="GET"
-      data-path="rest/validate-cnpj-is-registered/{CNPJ}"
+<form id="form-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-" data-method="GET"
+      data-path="rest/V1/user/validate-cnpj-is-registered/{CNPJ}"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETrest-validate-cnpj-is-registered--CNPJ-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETrest-V1-user-validate-cnpj-is-registered--CNPJ-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETrest-validate-cnpj-is-registered--CNPJ-"
-                    onclick="tryItOut('GETrest-validate-cnpj-is-registered--CNPJ-');">Try it out ⚡
+                    id="btn-tryout-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-"
+                    onclick="tryItOut('GETrest-V1-user-validate-cnpj-is-registered--CNPJ-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETrest-validate-cnpj-is-registered--CNPJ-"
-                    onclick="cancelTryOut('GETrest-validate-cnpj-is-registered--CNPJ-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-"
+                    onclick="cancelTryOut('GETrest-V1-user-validate-cnpj-is-registered--CNPJ-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETrest-validate-cnpj-is-registered--CNPJ-"
+                    id="btn-executetryout-GETrest-V1-user-validate-cnpj-is-registered--CNPJ-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -205,7 +596,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>rest/validate-cnpj-is-registered/{CNPJ}</code></b>
+            <b><code>rest/V1/user/validate-cnpj-is-registered/{CNPJ}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -213,7 +604,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETrest-validate-cnpj-is-registered--CNPJ-"
+                              name="Content-Type"                data-endpoint="GETrest-V1-user-validate-cnpj-is-registered--CNPJ-"
                value="application/json"
                data-component="header">
     <br>
@@ -224,7 +615,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETrest-validate-cnpj-is-registered--CNPJ-"
+                              name="Accept"                data-endpoint="GETrest-V1-user-validate-cnpj-is-registered--CNPJ-"
                value="application/json"
                data-component="header">
     <br>
@@ -236,7 +627,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="CNPJ"                data-endpoint="GETrest-validate-cnpj-is-registered--CNPJ-"
+                              name="CNPJ"                data-endpoint="GETrest-V1-user-validate-cnpj-is-registered--CNPJ-"
                value="consequatur"
                data-component="url">
     <br>
@@ -253,7 +644,168 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <br>
 <p>CNPJ is registered</p>
         </div>
-                
+                        <h2 id="user-POSTrest-V1-user-generate-token">Generate user token</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTrest-V1-user-generate-token">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://contas.localhost/rest/V1/user/generate-token" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"cnpj\": \"consequatur\",
+    \"password\": \"O[2UZ5ij-e\\/dl4m{o,\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://contas.localhost/rest/V1/user/generate-token"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "cnpj": "consequatur",
+    "password": "O[2UZ5ij-e\/dl4m{o,"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTrest-V1-user-generate-token">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+  &quot;bearer_token&quot;: &quot;tokenabcde&quot;,
+  &quot;validuntil&quot;: &quot;1747515969&quot;,
+ }</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Invalid CNPJ or password):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Invalid CNPJ or password&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTrest-V1-user-generate-token" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTrest-V1-user-generate-token"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTrest-V1-user-generate-token"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTrest-V1-user-generate-token" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTrest-V1-user-generate-token">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTrest-V1-user-generate-token" data-method="POST"
+      data-path="rest/V1/user/generate-token"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTrest-V1-user-generate-token', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTrest-V1-user-generate-token"
+                    onclick="tryItOut('POSTrest-V1-user-generate-token');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTrest-V1-user-generate-token"
+                    onclick="cancelTryOut('POSTrest-V1-user-generate-token');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTrest-V1-user-generate-token"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>rest/V1/user/generate-token</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTrest-V1-user-generate-token"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTrest-V1-user-generate-token"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cnpj</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cnpj"                data-endpoint="POSTrest-V1-user-generate-token"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>CNPJ Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="POSTrest-V1-user-generate-token"
+               value="O[2UZ5ij-e/dl4m{o,"
+               data-component="body">
+    <br>
+<p>password Example: <code>O[2UZ5ij-e/dl4m{o,</code></p>
+        </div>
+        </form>
+
+            
 
         
     </div>

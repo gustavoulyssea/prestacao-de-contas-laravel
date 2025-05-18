@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Rest\User\CreateUser;
+use App\Http\Controllers\Rest\User\GenerateToken;
+use App\Http\Controllers\Rest\User\GetUser;
 use App\Http\Controllers\Rest\User\ValidateCnpjIsRegistered;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +21,23 @@ Route::get('/', function () {
     return response()->noContent(); // status 204 - sem conteúdo
 });
 
-Route::name('rest.')->prefix('/rest')->group(function () {
-    Route::get(
-        '/validate-cnpj-is-registered/{CNPJ}',
-        [ValidateCnpjIsRegistered::class, 'validateCnpjIsRegistered']
-    );
+Route::name('rest.v1.')->prefix('/rest/V1')->group(function () {
+    Route::name('user.')->prefix('/user')->group(function () {
+        Route::get(
+            '/me',
+            [GetUser::class, 'get']
+        );
+        Route::post(
+            '/create-user',
+            [CreateUser::class, 'create']
+        );
+        Route::get(
+            '/validate-cnpj-is-registered/{CNPJ}',
+            [ValidateCnpjIsRegistered::class, 'validateCnpjIsRegistered']
+        );
+        Route::post(
+            '/generate-token',
+            [GenerateToken::class, 'generateToken']
+        );
+    });
 });
