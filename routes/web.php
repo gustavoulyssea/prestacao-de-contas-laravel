@@ -3,6 +3,8 @@
 use App\Http\Controllers\Rest\User\CreateUser;
 use App\Http\Controllers\Rest\User\GenerateToken;
 use App\Http\Controllers\Rest\User\GetUser;
+use App\Http\Controllers\Rest\User\RequestResetPasswordLink;
+use App\Http\Controllers\Rest\User\ResetPasswordController;
 use App\Http\Controllers\Rest\User\ValidateCnpjIsRegistered;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +40,14 @@ Route::name('rest.v1.')->prefix('/rest/V1')->group(function () {
         Route::post(
             '/generate-token',
             [GenerateToken::class, 'generateToken']
+        );
+        Route::post(
+            '/request-reset-password-link',
+            [RequestResetPasswordLink::class, 'post']
+        );
+        Route::post(
+            '/reset-password',
+            [ResetPasswordController::class, 'post']
         );
     });
 });

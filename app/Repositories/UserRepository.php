@@ -40,6 +40,21 @@ class UserRepository extends BaseRepository
         return User::query()->where(User::ID, $id)->first();
     }
 
+    /**
+     * @param string $token
+     *
+     * @return Model|null
+     */
+    public static function getUserByResetPasswordToken(string $token): ?Model
+    {
+        return User::query()->where(User::RESET_PASSWORD_TOKEN, $token)->first();
+    }
+
+    /**
+     * @param array $userData
+     *
+     * @return int
+     */
     public static function create(
         array $userData
     ): int {

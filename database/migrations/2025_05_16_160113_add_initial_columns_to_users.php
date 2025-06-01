@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('razao_social');
             $table->string('responsible_name');
             $table->string('telephone')->nullable();
+            $table->string('reset_password_token')->nullable();
         });
     }
 

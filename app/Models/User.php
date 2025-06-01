@@ -15,6 +15,7 @@ class User extends Authenticatable
     public const RAZAO_SOCIAL = 'razao_social';
     public const RESPONSIBLE_NAME = 'responsible_name';
     public const TELEPHONE = 'telephone';
+    public const RESET_PASSWORD_TOKEN = 'reset_password_token';
 
     /**
      * The attributes that are mass assignable.

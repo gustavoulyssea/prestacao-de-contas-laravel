@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Rest\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Mail\ConfirmationEmail;
 use App\Services\TokenService;
 use App\Services\UserService;
 use Illuminate\Http\JsonResponse;
@@ -64,6 +65,8 @@ class CreateUser extends Controller
                 401
             );
         }
+
+        ConfirmationEmail::send($createResult);
 
         $token = TokenService::generateUserToken($userData['cnpj'], $userData['password']);
 
