@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('responsible_name');
             $table->string('telephone')->nullable();
             $table->string('reset_password_token')->nullable();
+            $table->string('email_confirmation_hash')->nullable();
         });
     }
 
