@@ -6,6 +6,9 @@ use App\Http\Controllers\Rest\User\GetUser;
 use App\Http\Controllers\Rest\User\RequestResetPasswordLink;
 use App\Http\Controllers\Rest\User\ResetPasswordController;
 use App\Http\Controllers\Rest\User\ValidateCnpjIsRegistered;
+use App\Http\Controllers\Rest\UserFiles\Download;
+use App\Http\Controllers\Rest\UserFiles\GetValidFileTypes;
+use App\Http\Controllers\Rest\UserFiles\Upload;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,5 +52,19 @@ Route::name('rest.v1.')->prefix('/rest/V1')->group(function () {
             '/reset-password',
             [ResetPasswordController::class, 'post']
         );
+        Route::name('file.')->prefix('/file')->group(function () {
+            Route::get(
+                '/valid-types',
+                [GetValidFileTypes::class, 'get']
+            );
+            Route::post(
+                '/upload',
+                [Upload::class, 'upload']
+            );
+            Route::get(
+                '/download/{file_type}',
+                [Download::class, 'download']
+            );
+        });
     });
 });

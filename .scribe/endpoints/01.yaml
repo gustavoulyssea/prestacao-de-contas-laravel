@@ -1,0 +1,209 @@
+name: user/file
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: rest/V1/user/file/valid-types
+    metadata:
+      groupName: user/file
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Valid User File Types'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          [
+
+               "type_a",
+               "type_b",
+               "type_c"
+          ]
+        headers: []
+        description: success
+        custom: []
+      -
+        status: 401
+        content: '{"message": "Unauthorized"}'
+        headers: []
+        description: Unautorized
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: rest/V1/user/file/upload
+    metadata:
+      groupName: user/file
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'User file upload'
+      description: 'Uploads a user file as PDF'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      filename:
+        name: filename
+        description: 'Original file name'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      file_type:
+        name: file_type
+        description: 'file type (contrato_social, cartao_cnpj, etc))'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      pdf:
+        name: pdf
+        description: 'PDF (max 10MB).'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      filename: consequatur
+      file_type: consequatur
+    fileParameters:
+      pdf: null
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "message": "Arquivo enviado com sucesso",
+            "filename": "abcd.pdf",
+            "file_type": "contrato"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+            "message": "The given data was invalid.",
+            "errors": {
+              "filename": ["The filename field is required."],
+              "pdf": ["The pdf must be a file of type: pdf."]
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'rest/V1/user/file/download/{file_type}'
+    metadata:
+      groupName: user/file
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Download a user file by type'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      file_type:
+        name: file_type
+        description: '(ex: contrato, nota_fiscal, recibo)'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      file_type: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "application/pdf": "(binary file content)"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+            "message": "Arquivo não encontrado."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+    custom: []

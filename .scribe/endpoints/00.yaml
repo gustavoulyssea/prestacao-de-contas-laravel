@@ -234,11 +234,13 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"result":false}'
+        content: '{"result":true}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           0: 'Content-Type: application/json'
+          access-control-allow-origin: 'http://localhost:5173'
+          access-control-allow-credentials: 'true'
         description: null
         custom: []
     responseFields:
