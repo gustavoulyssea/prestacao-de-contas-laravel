@@ -15,7 +15,7 @@ class ListFiles extends Controller
     /**
      * List user files
      *
-     * @group user/file
+     * @group user files
      *
      * @authenticated
      *

@@ -15,7 +15,7 @@ class Delete extends Controller
     /**
      * Delete user file
      *
-     * @group user/file
+     * @group user files
      *
      * @authenticated
      *

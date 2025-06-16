@@ -13,7 +13,7 @@ class GetValidFileTypes extends Controller
     /**
      * Get Valid User File Types
      *
-     * @group user/file
+     * @group user files
      *
      * @authenticated
      *

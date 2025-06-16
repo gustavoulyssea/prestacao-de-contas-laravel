@@ -17,7 +17,7 @@ class Download extends Controller
      *
      * @authenticated
      *
-     * @group user/file
+     * @group user files
      *
      * @urlParam file_type string required (ex: contrato, nota_fiscal, recibo)
      *

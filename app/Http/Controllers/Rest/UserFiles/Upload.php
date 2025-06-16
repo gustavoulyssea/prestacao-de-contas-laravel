@@ -18,7 +18,7 @@ class Upload extends Controller
      *
      * Uploads a user file as PDF
      *
-     * @group user/file
+     * @group user files
      *
      * @authenticated
      *
