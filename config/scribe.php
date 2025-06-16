@@ -27,7 +27,7 @@ return [
         [
             'match' => [
                 // Match only routes whose paths match this pattern (use * as a wildcard to match any characters). Example: 'users/*'.
-                'prefixes' => ['rest/*'],
+                'prefixes' => ['rest/*', 'rest/*/*', 'rest/*/*/*'],
 
                 // Match only routes whose domains match this pattern (use * as a wildcard to match any characters). Example: 'api.*'.
                 'domains' => ['*'],
@@ -35,7 +35,7 @@ return [
 
             // Include these routes even if they did not match the rules above.
             'include' => [
-                // 'users.index', 'POST /new', '/auth/*'
+                base_path('routes/web.php')
             ],
 
             // Exclude these routes even if they matched the rules above.
