@@ -105,6 +105,12 @@
                                                                                 <li class="tocify-item level-2" data-unique="userfile-GETrest-V1-user-file-download--file_type-">
                                 <a href="#userfile-GETrest-V1-user-file-download--file_type-">Download a user file by type</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="userfile-DELETErest-V1-user-file-delete--file_type-">
+                                <a href="#userfile-DELETErest-V1-user-file-delete--file_type-">Delete user file</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="userfile-GETrest-V1-user-file-list">
+                                <a href="#userfile-GETrest-V1-user-file-list">List user files</a>
+                            </li>
                                                                         </ul>
                             </ul>
             </div>
@@ -116,7 +122,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: June 15, 2025</li>
+        <li>Last updated: June 16, 2025</li>
     </ul>
 </div>
 
@@ -1299,7 +1305,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "filename=consequatur"\
     --form "file_type=consequatur"\
-    --form "pdf=@/tmp/phpmKISDP" </code></pre></div>
+    --form "pdf=@/tmp/phpNEVUFX" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1468,7 +1474,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>PDF (max 10MB). Example: <code>/tmp/phpmKISDP</code></p>
+<p>PDF (max 10MB). Example: <code>/tmp/phpNEVUFX</code></p>
         </div>
         </form>
 
@@ -1623,6 +1629,282 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>(ex: contrato, nota_fiscal, recibo) Example: <code>consequatur</code></p>
             </div>
                     </form>
+
+                    <h2 id="userfile-DELETErest-V1-user-file-delete--file_type-">Delete user file</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETErest-V1-user-file-delete--file_type-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://contas.localhost/rest/V1/user/file/delete/consequatur" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://contas.localhost/rest/V1/user/file/delete/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETErest-V1-user-file-delete--file_type-">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;File successfully deleted&quot;,
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETErest-V1-user-file-delete--file_type-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETErest-V1-user-file-delete--file_type-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETErest-V1-user-file-delete--file_type-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETErest-V1-user-file-delete--file_type-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETErest-V1-user-file-delete--file_type-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETErest-V1-user-file-delete--file_type-" data-method="DELETE"
+      data-path="rest/V1/user/file/delete/{file_type}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETErest-V1-user-file-delete--file_type-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETErest-V1-user-file-delete--file_type-"
+                    onclick="tryItOut('DELETErest-V1-user-file-delete--file_type-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETErest-V1-user-file-delete--file_type-"
+                    onclick="cancelTryOut('DELETErest-V1-user-file-delete--file_type-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETErest-V1-user-file-delete--file_type-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>rest/V1/user/file/delete/{file_type}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETErest-V1-user-file-delete--file_type-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETErest-V1-user-file-delete--file_type-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETErest-V1-user-file-delete--file_type-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>file_type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="file_type"                data-endpoint="DELETErest-V1-user-file-delete--file_type-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>file type (contrato_social, cartao_cnpj, etc)) Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="userfile-GETrest-V1-user-file-list">List user files</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETrest-V1-user-file-list">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://contas.localhost/rest/V1/user/file/list" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://contas.localhost/rest/V1/user/file/list"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETrest-V1-user-file-list">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+  &quot;type_1&quot;: &quot;abcd&quot;,
+  &quot;type_2&quot;: &quot;xxzz&quot;,
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETrest-V1-user-file-list" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETrest-V1-user-file-list"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETrest-V1-user-file-list"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETrest-V1-user-file-list" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETrest-V1-user-file-list">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETrest-V1-user-file-list" data-method="GET"
+      data-path="rest/V1/user/file/list"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETrest-V1-user-file-list', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETrest-V1-user-file-list"
+                    onclick="tryItOut('GETrest-V1-user-file-list');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETrest-V1-user-file-list"
+                    onclick="cancelTryOut('GETrest-V1-user-file-list');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETrest-V1-user-file-list"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>rest/V1/user/file/list</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETrest-V1-user-file-list"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETrest-V1-user-file-list"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETrest-V1-user-file-list"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
             
 

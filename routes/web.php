@@ -6,8 +6,10 @@ use App\Http\Controllers\Rest\User\GetUser;
 use App\Http\Controllers\Rest\User\RequestResetPasswordLink;
 use App\Http\Controllers\Rest\User\ResetPasswordController;
 use App\Http\Controllers\Rest\User\ValidateCnpjIsRegistered;
+use App\Http\Controllers\Rest\UserFiles\Delete;
 use App\Http\Controllers\Rest\UserFiles\Download;
 use App\Http\Controllers\Rest\UserFiles\GetValidFileTypes;
+use App\Http\Controllers\Rest\UserFiles\ListFiles;
 use App\Http\Controllers\Rest\UserFiles\Upload;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +66,14 @@ Route::name('rest.v1.')->prefix('/rest/V1')->group(function () {
             Route::get(
                 '/download/{file_type}',
                 [Download::class, 'download']
+            );
+            Route::delete(
+                '/delete/{file_type}',
+            [Delete::class, 'delete']
+            );
+            Route::get(
+                '/list',
+                [ListFiles::class, 'list']
             );
         });
     });

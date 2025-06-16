@@ -15,6 +15,21 @@ class UserFileService
 {
     /**
      * @param int $userId
+     *
+     * @return array
+     */
+    public static function getUserFileList(int $userId): array
+    {
+        $result = [];
+        foreach (UserFileRepository::listUserFiles($userId) as $file) {
+            $result[$file->{UserFile::FILE_TYPE}] = $file->{UserFile::FILE_NAME};
+        }
+        return $result;
+    }
+
+
+    /**
+     * @param int $userId
      * @param string $fileType
      *
      * @return Response
@@ -32,6 +47,21 @@ class UserFileService
         return Storage::download(UserFile::STORAGE_DIR  . '/' . $fileName, $fileName, [
             'Content-Type' => 'application/pdf',
         ]);
+    }
+
+    /**
+     * @param int $userId
+     * @param string $fileType
+     *
+     * @return bool
+     */
+    public static function delete(int $userId, string $fileType): bool
+    {
+        if (!UserFileRepository::getFileNameByUserIdAndType($userId, $fileType)) {
+            return false;
+        }
+        UserFileRepository::invalidateFilesByCustomerAndType($userId, $fileType);
+        return true;
     }
 
     /**

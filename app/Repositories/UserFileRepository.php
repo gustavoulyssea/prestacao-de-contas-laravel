@@ -11,6 +11,16 @@ class UserFileRepository extends BaseRepository
 {
     /**
      * @param int $userId
+     *
+     * return array
+     */
+    public static function listUserFiles(int $userId)
+    {
+        return UserFile::query()->where(UserFile::USER_ID, $userId)->get();
+    }
+
+    /**
+     * @param int $userId
      * @param string $type
      *
      * @return string|null
@@ -46,6 +56,13 @@ class UserFileRepository extends BaseRepository
             ->update([UserFile::ACTIVE => 0]);
     }
 
+    /**
+     * @param int $userId
+     * @param string $type
+     * @param string $fileName
+     *
+     * @return int
+     */
     public static function createFile(int $userId, string $type, string $fileName): int
     {
         return UserFile::query()->insertGetId(
