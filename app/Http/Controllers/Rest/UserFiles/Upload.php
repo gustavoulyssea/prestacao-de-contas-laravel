@@ -63,6 +63,6 @@ class Upload extends Controller
 
     public static function getValidFileTypes(): string
     {
-        return 'required|string|in:' . implode(',', UserFile::VALID_FILE_TYPES);
+        return 'required|string|in:' . implode(',', array_keys(UserFile::VALID_FILE_TYPES));
     }
 }

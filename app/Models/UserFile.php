@@ -14,13 +14,13 @@ class UserFile extends Model
     public const ACTIVE = 'active';
 
     public const VALID_FILE_TYPES = [
-        'certidao_negativa_federal',
-        'certidao_negativa_municipal',
-        'certidao_negativa_estadual',
-        'certidao_negativa_trabalhista',
-        'certidao_fgts',
-        'contrato_social',
-        'cartao_cnpj'
+        'certidao_negativa_federal' => 'Certidão negativa federal',
+        'certidao_negativa_municipal' => 'Certidão negativa municipal',
+        'certidao_negativa_estadual' => 'Certidão negativa estadual',
+        'certidao_negativa_trabalhista' => 'Certidão negativa trabalhista',
+        'certidao_fgts' => 'Certidão FGTS',
+        'contrato_social' => 'Contrato Social',
+        'cartao_cnpj' => 'Cartão CNPJ'
     ];
 
     public const STORAGE_DIR = 'user_files';
